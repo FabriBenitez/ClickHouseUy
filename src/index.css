@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   VARIABLES GLOBALES — ClickHouse UY
+   ============================================ */
+:root {
+  --color-crema-base:   #F9F4EC;
+  --color-madera-media: #A67C52;
+  --color-verde-fuerte: #3A6B31;
+  --color-carbon:       #1C1C1A;
+  --radio-tarjeta:      8px;
+  --blur-glass:         20px;
+  --transicion-base:    0.3s ease;
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-crema-50 text-carbon-800 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-verde-400;
+  }
+}
+
+/* ============================================
+   COMPONENTES REUTILIZABLES — BEM
+   ============================================ */
+@layer components {
+
+  /* --- Botones --- */
+  .boton-primario {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5
+           bg-verde-600 text-crema-50 font-semibold text-sm rounded-lg
+           transition-all duration-300
+           hover:bg-verde-700 hover:shadow-lg hover:-translate-y-0.5
+           focus-visible:ring-2 focus-visible:ring-verde-400 focus-visible:ring-offset-2;
+  }
+
+  .boton-secundario {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5
+           border-2 border-crema-50 text-crema-50 font-semibold text-sm rounded-lg
+           transition-all duration-300
+           hover:bg-crema-50 hover:text-carbon-800
+           focus-visible:ring-2 focus-visible:ring-crema-200 focus-visible:ring-offset-2;
+  }
+
+  .boton-contorno-verde {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5
+           border-2 border-verde-600 text-verde-600 font-semibold text-sm rounded-lg
+           transition-all duration-300
+           hover:bg-verde-600 hover:text-crema-50 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  /* --- Tarjeta glass --- */
+  .tarjeta-glass {
+    background: rgba(249, 244, 236, 0.75);
+    backdrop-filter: blur(var(--blur-glass));
+    -webkit-backdrop-filter: blur(var(--blur-glass));
+    @apply border border-crema-300/60 rounded-xl shadow-sm;
+  }
+
+  /* --- Tarjeta modelo --- */
+  .tarjeta-modelo {
+    @apply bg-white border border-crema-300 rounded-lg overflow-hidden
+           shadow-sm transition-all duration-300
+           hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .tarjeta-modelo__imagen-wrapper {
+    @apply relative overflow-hidden aspect-[3/2];
+  }
+
+  .tarjeta-modelo__imagen {
+    @apply w-full h-full object-cover transition-transform duration-500
+           hover:scale-105;
+  }
+
+  /* --- Badge --- */
+  .badge-hero {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full
+           text-sm font-medium text-crema-50;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+
+  /* --- Sección título --- */
+  .seccion-titulo {
+    @apply text-3xl md:text-4xl font-display text-carbon-800 leading-tight;
+  }
+
+  .seccion-subtitulo {
+    @apply text-verde-600 font-semibold text-sm uppercase tracking-widest;
+  }
+
+  /* --- Contenedor principal --- */
+  .contenedor {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* --- Línea decorativa --- */
+  .linea-decorativa {
+    @apply w-12 h-1 bg-madera-400 rounded-full mt-4 mb-6;
+  }
+
+  /* --- Ícono beneficio --- */
+  .icono-beneficio {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center
+           bg-verde-100 text-verde-600 flex-shrink-0;
+  }
+
+  /* --- Dato técnico --- */
+  .dato-tecnico {
+    @apply flex items-start gap-2 text-sm text-carbon-800/80;
+  }
+
+  .dato-tecnico__etiqueta {
+    @apply font-semibold text-carbon-800 text-xs uppercase tracking-wide;
+  }
+
+  /* --- Acordeón FAQ --- */
+  .faq-item {
+    @apply border-b border-crema-300 last:border-0;
+  }
+
+  .faq-pregunta {
+    @apply w-full text-left py-5 flex items-center justify-between
+           font-semibold text-carbon-800 transition-colors duration-200
+           hover:text-verde-600 text-base md:text-lg;
+  }
+
+  .faq-respuesta {
+    @apply text-carbon-800/70 leading-relaxed pb-5 text-sm md:text-base;
+  }
+
+  /* --- Input formulario --- */
+  .campo-formulario {
+    @apply w-full px-4 py-3 rounded-lg border border-crema-300
+           bg-crema-50 text-carbon-800 placeholder-carbon-800/40
+           transition-all duration-200 text-sm
+           focus:outline-none focus:border-verde-500 focus:ring-2 focus:ring-verde-200;
+  }
+}
+
+/* ============================================
+   UTILIDADES ADICIONALES
+   ============================================ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-nav {
+    background: rgba(249, 244, 236, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(196, 149, 106, 0.2);
+  }
+
+  .glass-nav--scrolled {
+    background: rgba(249, 244, 236, 0.97);
+    box-shadow: 0 1px 20px rgba(28, 28, 26, 0.08);
+  }
+
+  .gradiente-oscuro-bottom {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(15, 15, 13, 0.3) 50%,
+      rgba(15, 15, 13, 0.75) 100%
+    );
+  }
+
+  .gradiente-verde {
+    background: linear-gradient(135deg, #2C5224 0%, #3A6B31 50%, #5C8F52 100%);
+  }
+}
+
+/* ============================================
+   ANIMACIONES CUSTOM (accordion)
+   ============================================ */
+.faq-respuesta-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faq-respuesta-wrapper--abierto {
+  grid-template-rows: 1fr;
+}
+
+.faq-respuesta-wrapper > div {
+  overflow: hidden;
+}
+
+/* Scroll suave para nav links */
+html {
+  scroll-padding-top: 80px;
+}

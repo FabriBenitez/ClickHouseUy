@@ -1,0 +1,29 @@
+{
+  "name": "clickhouseuy",
+  "version": "1.0.0",
+  "description": "Landing page casas modulares ClickHouse UY",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabriBenitez/ClickHouseUy.git"
+  },
+  "author": "ClickHouse UY",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
